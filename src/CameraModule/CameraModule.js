@@ -28,10 +28,6 @@ class CameraModule extends Component {
   }
   
   render() {
-    function handleTakePhotoAnimationDone (dataUri) {
-      console.log('takePhoto');
-      setDataUri(dataUri);
-    }
     return (
       <div>
         {(this.state.photo)

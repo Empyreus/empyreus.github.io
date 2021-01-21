@@ -10,18 +10,13 @@ export const ImagePreview = ({ dataUri, isFullscreen, handleRetakePhoto, handleA
 
   return (
     <div className={'demo-image-preview ' + classNameFullscreen}>
-
         <div className="IconRetake">
           <HighlightOffIcon style={{ fontSize: "5rem" }} onClick={handleRetakePhoto} />
         </div>
-
         <div className="IconAccept">
           <CheckCircleOutlineIcon style={{ fontSize: "5rem" }} onClick={handleAcceptPhoto} />
         </div>
-
       <img src={dataUri} />
-
-
     </div>
   );
 };
