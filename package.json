@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://empyreus.github.io/empyreus.github.io",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-html5-camera-photo": "^1.5.4",

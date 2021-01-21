@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CameraModule from './CameraModule'
+import CameraModule from './CameraModule/CameraModule'
 
 class App extends Component {
   render() {
