@@ -29,24 +29,30 @@ class CameraModule extends Component {
   }
 
   render() {
-    if (this.state.photo === null) {
-      return (
-        <Camera
-          onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
-          imageType={IMAGE_TYPES.JPG}
-          isFullscreen={true}
-        />
-      )
-    }
-    else if (this.state.photo !== null) {
-      return (
-        <ImagePreview dataUri={this.state.photo}
-          isFullscreen={true}
-          handleRetakePhoto={this.handleRetakePhoto}
-          handleAcceptPhoto={this.handleAcceptPhoto}
-        />
-      )
-    }
+
+
+
+    return (
+      <div>
+        <div className={this.state.photo === null ? "" : "HiddenClass"}>
+
+          <Camera
+            onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
+            isFullscreen={true}
+          />
+        </div>
+
+        <div className={this.state.photo !== null ? "" : "HiddenClass"}>
+
+          <ImagePreview dataUri={this.state.photo}
+            isFullscreen={true}
+            handleRetakePhoto={this.handleRetakePhoto}
+            handleAcceptPhoto={this.handleAcceptPhoto}
+          />
+        </div>
+
+      </div>
+    )
   }
 }
 
