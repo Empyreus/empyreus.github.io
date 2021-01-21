@@ -24,7 +24,7 @@ class CameraModule extends Component {
   }
 
   render() {
-    const isFullscreen = false;
+    const isFullscreen = true;
 
 
     if (this.state.error) {
@@ -35,16 +35,17 @@ class CameraModule extends Component {
         onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
         onCameraError={(error) => { this.handleCameraError(error) }}
         imageType={IMAGE_TYPES.JPG}
+        isFullscreen={isFullscreen}
       />)
     }
     else if (this.state.photo !== null) {
       return (
+
           <ImagePreview dataUri={this.state.photo}
             isFullscreen={isFullscreen}
           />
       )
     }
-
   }
 }
 
