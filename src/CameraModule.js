@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
-import 'react-html5-camera-photo/build/css/index.css';
 
+import Camera, { IMAGE_TYPES } from 'react-html5-camera-photo';
+import 'react-html5-camera-photo/build/css/index.css';
+import ImagePreview from './ImagePreview';
 
 class CameraModule extends Component {
   state = {
@@ -22,20 +23,37 @@ class CameraModule extends Component {
     this.setState({ error: 1 });
   }
 
-
   render() {
+    const isFullscreen = false;
+
+
     if (this.state.error) {
       return <p>Bogged Camera</p>
     }
-    else {
+    else if (this.state.photo === null) {
       return (<Camera
         onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
         onCameraError={(error) => { this.handleCameraError(error) }}
         imageType={IMAGE_TYPES.JPG}
-        isFullscreen={true}
-        idealFacingMode={FACING_MODES.ENVIRONMENT}
       />)
     }
+    else if (this.state.photo !== null) {
+      return (
+        <>
+          {
+            (this.state.photo)
+              ? <ImagePreview dataUri={this.state.photo}
+                isFullscreen={isFullscreen}
+              />
+              : <Camera onTakePhotoAnimationDone={handleTakePhotoAnimationDone}
+                isFullscreen={isFullscreen}
+              />
+          }
+        </>
+
+      )
+    }
+
   }
 }
 
