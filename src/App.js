@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Test from './test'
+import CameraModule from './CameraModule'
 
 class App extends Component {
   render() {
@@ -9,11 +9,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to RJ Souza's Website</h1>
         </header>
-        <Test></Test>
+        <CameraModule/>
         <p className="App-intro">
-          NO Idea
+          Kyle and Martin's Test Camera
         </p>
       </div>
     );
