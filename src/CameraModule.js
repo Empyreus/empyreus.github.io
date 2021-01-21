@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Camera, { IMAGE_TYPES } from 'react-html5-camera-photo';
+import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 
 
@@ -32,6 +32,8 @@ class CameraModule extends Component {
         onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
         onCameraError={(error) => { this.handleCameraError(error) }}
         imageType={IMAGE_TYPES.JPG}
+        isFullscreen={true}
+        idealFacingMode={FACING_MODES.ENVIRONMENT}
       />)
     }
   }
