@@ -40,20 +40,12 @@ class CameraModule extends Component {
     }
     else if (this.state.photo !== null) {
       return (
-        <>
-          {
-            (this.state.photo)
-              ? <ImagePreview dataUri={this.state.photo}
-                isFullscreen={isFullscreen}
-              />
-              : <Camera onTakePhotoAnimationDone={handleTakePhotoAnimationDone}
-                isFullscreen={isFullscreen}
-              />
-          }
-        </>
+
+          <ImagePreview dataUri={this.state.photo}
+            isFullscreen={isFullscreen}
+          />
       )
     }
-
   }
 }
 
