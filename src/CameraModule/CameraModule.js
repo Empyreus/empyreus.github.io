@@ -9,14 +9,6 @@ class CameraModule extends Component {
     photo: null,
   }
 
-  handleTakePhoto = (dataUri) => {
-    // Do stuff with the photo...
-    console.log('takePhoto');
-    this.setState({
-      photo: dataUri
-    })
-  }
-
   handleRetakePhoto = () => {
     console.log("Retake Photo")
     this.setState({
@@ -28,29 +20,32 @@ class CameraModule extends Component {
     console.log("Photo Accepted")
   }
 
- 
+  handleTakePhotoAnimationDone = (dataUri) => {
+    console.log("Animation Finish Photo")
+    this.setState({
+      photo: dataUri
+    })
+  }
+  
   render() {
-
-
-
+    function handleTakePhotoAnimationDone (dataUri) {
+      console.log('takePhoto');
+      setDataUri(dataUri);
+    }
     return (
       <div>
-        <div className={this.state.photo === null ? "" : "HiddenClass"}>
-
-          <Camera
-            onTakePhoto={(dataUri) => { this.handleTakePhoto(dataUri) }}
-            isFullscreen={true}
-          />
-        </div>
-
-        <div className={this.state.photo !== null ? "" : "HiddenClass"}>
-          <ImagePreview dataUri={this.state.photo}
+        {(this.state.photo)
+          ? <ImagePreview
+            dataUri={this.state.photo}
             isFullscreen={true}
             handleRetakePhoto={this.handleRetakePhoto}
             handleAcceptPhoto={this.handleAcceptPhoto}
           />
-        </div>
-
+          : <Camera
+            onTakePhotoAnimationDone={this.handleTakePhotoAnimationDone}
+            isFullscreen={true}
+          />
+        }
       </div>
     )
   }
