@@ -28,6 +28,7 @@ class CameraModule extends Component {
     console.log("Photo Accepted")
   }
 
+ 
   render() {
 
 
@@ -43,7 +44,6 @@ class CameraModule extends Component {
         </div>
 
         <div className={this.state.photo !== null ? "" : "HiddenClass"}>
-
           <ImagePreview dataUri={this.state.photo}
             isFullscreen={true}
             handleRetakePhoto={this.handleRetakePhoto}
